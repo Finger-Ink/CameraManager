@@ -546,8 +546,10 @@ open class CameraManager: NSObject, AVCaptureFileOutputRecordingDelegate, UIGest
             return
         }
         
-        let image = fixOrientation(withImage: img)
-        
+		// The orientation fix messes up ours.
+        //let image = fixOrientation(withImage: img)
+		let image = img
+		
         if writeFilesToPhoneLibrary {
             
             let filePath = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("tempImg\(Int(Date().timeIntervalSince1970)).jpg")
